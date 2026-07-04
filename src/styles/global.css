@@ -33,7 +33,7 @@
   --text-5xl: 3rem;
 
   /* Layout */
-  --width-page: 760px;
+  --width-page: 920px;
   --width-wide: 960px;
   --page-padding-x: 1.25rem;
   --page-padding-y: 3rem;
@@ -236,8 +236,9 @@ a:hover {
   color: var(--color-text-muted);
 }
 
-.site-nav a:hover {
-  color: var(--color-text-strong);
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--color-accent);
   text-decoration: none;
 }
 
@@ -252,6 +253,19 @@ a:hover {
 
 .site-nav a[aria-current="page"] .nav-key {
   color: var(--color-accent-muted);
+}
+
+/* ---------- Section divider ---------- */
+.section-divider-wrap {
+  max-width: var(--width-page);
+  margin-inline: auto;
+  padding-inline: var(--page-padding-x);
+}
+
+.section-divider {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--color-border-soft);
 }
 
 /* ---------- Footer ---------- */
