@@ -15,11 +15,14 @@ const isActive = (href: string) =>
 
 <header class="site-header">
   <nav class="site-nav" aria-label="Primary">
-    <ul>
+    <ul class="site-nav__list">
       {
         links.map(({ href, label, key }) => (
           <li>
-            <a href={href} aria-current={isActive(href) ? "page" : undefined}>
+            <a
+              href={href}
+              aria-current={isActive(href) ? "page" : undefined}
+            >
               <span class="nav-key" aria-hidden="true">[{key}]</span>
               <span>{label}</span>
             </a>

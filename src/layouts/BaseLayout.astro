@@ -34,12 +34,14 @@ const fullTitle = title === siteName ? siteName : `${title} · ${siteName}`;
     <title>{fullTitle}</title>
   </head>
   <body>
-    <Header />
-    <Divider />
-    <main class:list={["page-shell", { "is-centered": centered }]}>
-      <slot />
-    </main>
-    <Divider />
-    <Footer />
+    <div class="site-shell">
+      <Header />
+      <Divider />
+      <main class:list={["page-content", { "is-centered": centered }]}>
+        <slot />
+      </main>
+      <Divider />
+      <Footer />
+    </div>
   </body>
 </html>
