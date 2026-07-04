@@ -2,17 +2,24 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Divider from "../components/Divider.astro";
+import { getCanonicalUrl, site } from "../data/site";
 import "../styles/global.css";
 
 interface Props {
   title: string;
   description?: string;
   centered?: boolean;
+  noindex?: boolean;
 }
 
-const { title, description, centered = false } = Astro.props;
-const siteName = "varnish";
-const fullTitle = title === siteName ? siteName : `${title} · ${siteName}`;
+const {
+  title,
+  description = site.description,
+  centered = false,
+  noindex = false,
+} = Astro.props;
+const fullTitle = title === site.name ? site.name : `${title} · ${site.name}`;
+const canonicalUrl = getCanonicalUrl(Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -24,14 +31,27 @@ const fullTitle = title === siteName ? siteName : `${title} · ${siteName}`;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#0C0C0E" />
-    {description && <meta name="description" content={description} />}
     <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <meta name="author" content={site.author} />
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content={site.locale} />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
   </head>
   <body>
     <div class="site-shell">

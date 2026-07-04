@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const description = "Page not found.";
 ---
 
-<BaseLayout title="404" description={description} centered>
+<BaseLayout title="404" description={description} centered noindex>
   <div class="center-page">
     <div class="status-panel status-panel--error">
       <p class="status-kicker">error: route not found</p>

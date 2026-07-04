@@ -35,7 +35,7 @@
   --text-title: 3rem;
 
   /* Layout */
-  --width-wide: clamp(54rem, 68vw, 72rem);
+  --width-wide: clamp(42rem, 68vw, 54rem);
   --page-padding-x: 1rem;
 
   /* Spacing */
@@ -48,7 +48,6 @@
   --space-8: 2rem;
   --space-10: 2.5rem;
   --space-12: 3rem;
-  --space-16: 4rem;
 }
 
 /* ---------- Reset ---------- */
@@ -220,16 +219,9 @@ a:hover {
 .divider {
   width: 100%;
   height: 1px;
+  margin-block: var(--space-6);
   border: 0;
   background: var(--color-divider);
-}
-
-.divider--default {
-  margin-block: var(--space-6);
-}
-
-.divider--large {
-  margin-block: var(--space-12);
 }
 
 /* ---------- Header / nav ---------- */
@@ -296,17 +288,6 @@ a:hover {
 
 .site-footer p {
   margin: 0;
-}
-
-/* ---------- Reusable text utilities ---------- */
-.muted {
-  color: var(--color-text-muted);
-}
-
-.meta {
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
 }
 
 /* ---------- Homepage ---------- */
