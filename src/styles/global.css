@@ -18,10 +18,10 @@
   --color-accent-soft: rgba(249, 115, 22, 0.12);
 
   /* Typography */
-  --font-sans: Inter, Geist, ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", "Geist Mono", "SFMono-Regular", Consolas,
-    "Liberation Mono", Menlo, monospace;
+  --font-main: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-mono: var(--font-main);
+  --font-sans: var(--font-main);
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -71,7 +71,7 @@ body {
   flex-direction: column;
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: var(--font-sans);
+  font-family: var(--font-main);
   font-size: var(--text-base);
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
@@ -94,6 +94,12 @@ h6 {
   font-weight: 600;
   line-height: 1.2;
   margin: 0 0 var(--space-3);
+}
+
+h1 {
+  font-family: var(--font-main);
+  font-weight: 700;
+  letter-spacing: -0.04em;
 }
 
 h2 {
