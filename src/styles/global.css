@@ -321,12 +321,23 @@ a:hover {
   color: var(--color-text-strong);
 }
 
-.tagline {
+.intro-meta {
   margin: var(--space-3) 0 0;
+  font-family: var(--font-mono);
   font-size: var(--text-lg);
   color: var(--color-text-muted);
-  line-height: 1.5;
-  max-width: 40ch;
+  line-height: 1.6;
+  max-width: none;
+}
+
+.intro-meta span {
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .intro-meta {
+    white-space: nowrap;
+  }
 }
 
 /* ---------- Centered status pages (404 / under development) ---------- */
