@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Divider from "../components/Divider.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -28,9 +29,11 @@ const fullTitle = title === siteName ? siteName : `${title} · ${siteName}`;
   </head>
   <body>
     <Header />
+    <Divider />
     <main class:list={["page-shell", { "is-centered": centered }]}>
       <slot />
     </main>
+    <Divider />
     <Footer />
   </body>
 </html>
