@@ -35,7 +35,7 @@
   --text-title: 3rem;
 
   /* Layout */
-  --width-wide: clamp(42rem, 68vw, 54rem);
+  --width-wide: clamp(42rem, 68vw, 68rem);
   --page-padding-x: 1rem;
 
   /* Spacing */
@@ -311,6 +311,15 @@ a:hover {
   font-size: var(--text-base);
   color: var(--color-text-muted);
   line-height: 1.5;
+}
+
+.intro-text {
+  margin: var(--space-5) 0 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  max-width: min(100%, 60ch);
 }
 
 /* ---------- Centered status pages (404 / under development) ---------- */
