@@ -1,0 +1,22 @@
+---
+interface Props {
+  section: string;
+}
+
+const { section } = Astro.props;
+---
+
+<div class="center-page">
+  <div class="status-panel">
+    <span class="status-pill">
+      <span class="status-dot" aria-hidden="true"></span>
+      status: building
+    </span>
+    <p class="status-section">{section}</p>
+    <h1 class="status-title">under development</h1>
+    <p class="status-description">
+      This section is not ready yet. Check back soon.
+    </p>
+    <a class="status-action" href="/">go home</a>
+  </div>
+</div>

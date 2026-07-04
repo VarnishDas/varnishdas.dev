@@ -6,9 +6,10 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description?: string;
+  centered?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, centered = false } = Astro.props;
 const siteName = "varnish";
 const fullTitle = title === siteName ? siteName : `${title} · ${siteName}`;
 ---
@@ -27,7 +28,7 @@ const fullTitle = title === siteName ? siteName : `${title} · ${siteName}`;
   </head>
   <body>
     <Header />
-    <main class="page-shell">
+    <main class:list={["page-shell", { "is-centered": centered }]}>
       <slot />
     </main>
     <Footer />
