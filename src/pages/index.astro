@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Divider from "../components/Divider.astro";
+import { socialLinks } from "../data/socials";
 import { site } from "../data/site";
 
 const description = site.description;
@@ -20,4 +22,22 @@ const description = site.description;
     i'm also interested in finance. outside of coding, i'm probably watching formula 1, reading a book, watching some show
     or playing flight sim.
   </p>
+
+  <Divider />
+  <section class="socials" aria-labelledby="socials-title">
+    <h2 id="socials-title" class="socials__title">
+      <span class="socials__mark" aria-hidden="true">*</span> find me here
+    </h2>
+    <ul class="socials__list">
+      {
+        socialLinks.map(({ href, label }) => (
+          <li>
+            <a href={href} target="_blank" rel="noopener noreferrer">
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </BaseLayout>
