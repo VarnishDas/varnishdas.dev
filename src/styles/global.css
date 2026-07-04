@@ -201,6 +201,21 @@ a:hover {
   outline-offset: 3px;
 }
 
+/* ---------- Keycap ---------- */
+.keycap {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  line-height: 1;
+  padding: 0.18em 0.45em;
+  border: 1px solid var(--color-border);
+  border-radius: 0.3rem;
+  background: var(--color-bg-soft);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
 /* ---------- Layout ---------- */
 .site-shell {
   width: min(calc(100% - (var(--page-padding-x) * 2)), var(--width-wide));
@@ -284,10 +299,27 @@ a:hover {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--color-text-faint);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
 }
 
 .site-footer p {
   margin: 0;
+}
+
+.site-footer__hint {
+  display: none;
+  align-items: center;
+  gap: 0.35ch;
+}
+
+@media (min-width: 640px) {
+  .site-footer__hint {
+    display: inline-flex;
+  }
 }
 
 /* ---------- Homepage ---------- */
@@ -467,6 +499,76 @@ a:hover {
       rgba(255, 255, 255, 0.022) 0 1px,
       transparent 1px 24px
     );
+}
+
+/* ---------- Shortcuts panel ---------- */
+.shortcuts-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background: rgba(12, 12, 14, 0.72);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.shortcuts-panel[hidden] {
+  display: none;
+}
+
+.shortcuts-panel__inner {
+  width: 100%;
+  max-width: 22rem;
+  padding: var(--space-6);
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.shortcuts-panel__title {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-strong);
+}
+
+.shortcuts-panel__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.shortcuts-panel__list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.shortcuts-panel__list li span {
+  color: var(--color-text);
+}
+
+.shortcuts-panel__hint {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin: var(--space-4) 0 0;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border-soft);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
 }
 
 /* ---------- Reduced motion ---------- */

@@ -1,0 +1,40 @@
+---
+import { navLinks } from "../data/nav";
+---
+
+<div
+  class="shortcuts-panel"
+  id="shortcuts-panel"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="shortcuts-panel-title"
+  hidden
+>
+  <div class="shortcuts-panel__inner">
+    <h2 class="shortcuts-panel__title" id="shortcuts-panel-title">shortcuts</h2>
+    <ul class="shortcuts-panel__list">
+      {
+        navLinks.map(({ key, label }) => (
+          <li>
+            <kbd class="keycap">{key}</kbd>
+            <span>{label}</span>
+          </li>
+        ))
+      }
+      <li>
+        <kbd class="keycap">?</kbd>
+        <span>open / close shortcuts</span>
+      </li>
+      <li>
+        <kbd class="keycap">Esc</kbd>
+        <span>close shortcuts</span>
+      </li>
+    </ul>
+    <p class="shortcuts-panel__hint">
+      <kbd class="keycap">?</kbd>
+      <span>or</span>
+      <kbd class="keycap">Esc</kbd>
+      <span>to close</span>
+    </p>
+  </div>
+</div>

@@ -1,11 +1,5 @@
 ---
-const links = [
-  { href: "/", label: "home", key: "h" },
-  { href: "/blog", label: "blog", key: "b" },
-  { href: "/projects", label: "projects", key: "p" },
-  { href: "/now", label: "now", key: "n" },
-  { href: "/uses", label: "uses", key: "u" },
-];
+import { navLinks } from "../data/nav";
 
 const { pathname } = Astro.url;
 
@@ -17,7 +11,7 @@ const isActive = (href: string) =>
   <nav class="site-nav" aria-label="Primary">
     <ul class="site-nav__list">
       {
-        links.map(({ href, label, key }) => (
+        navLinks.map(({ href, label, key }) => (
           <li>
             <a
               href={href}
