@@ -1,0 +1,29 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import { projects } from "../data/projects";
+
+interface Props {
+  showAllLink?: boolean;
+}
+
+const { showAllLink = true } = Astro.props;
+const featuredProjects = projects.filter((project) => project.featured);
+---
+
+<section class="projects" aria-labelledby="projects-title">
+  <div class="projects__header">
+    <h2 id="projects-title" class="section-title">
+      <span class="section-title__mark" aria-hidden="true">*</span> projects
+    </h2>
+    {
+      showAllLink && (
+        <a class="projects__all" href="/projects">
+          all projects <span aria-hidden="true">↗</span>
+        </a>
+      )
+    }
+  </div>
+  <div class="projects__list">
+    {featuredProjects.map((project) => <ProjectCard project={project} />)}
+  </div>
+</section>

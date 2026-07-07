@@ -92,4 +92,5 @@ if (!window.__keyboardNavRegistered) {
   window.__keyboardNavRegistered = true;
   document.addEventListener("keydown", handleKeydown);
   document.addEventListener("pointerdown", handlePointerDown);
+  document.addEventListener("astro:page-load", () => setPanelOpen(false));
 }

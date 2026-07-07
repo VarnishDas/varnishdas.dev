@@ -70,7 +70,7 @@ const canonicalUrl = getCanonicalUrl(Astro.url.pathname);
       <Divider />
       <Footer />
     </div>
-    <ShortcutsPanel />
+    <ShortcutsPanel transition:persist />
     <script>
       import "../scripts/keyboard-nav";
     </script>

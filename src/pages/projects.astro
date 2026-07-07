@@ -1,10 +1,19 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import UnderDevelopment from "../components/UnderDevelopment.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
 
-const description = "Projects are under development.";
+const description = "a collection of things i've built.";
 ---
 
-<BaseLayout title="projects" description={description} centered noindex>
-  <UnderDevelopment section="projects" />
+<BaseLayout title="projects" description={description}>
+  <h1 class="name">projects</h1>
+  <p class="intro-text">a small collection of things i've built.</p>
+
+  <section class="projects-page" aria-labelledby="projects-page-title">
+    <h2 id="projects-page-title" class="visually-hidden">project list</h2>
+    <div class="projects__list">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
 </BaseLayout>

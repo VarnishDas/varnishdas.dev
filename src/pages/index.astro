@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Divider from "../components/Divider.astro";
+import ProjectsSection from "../components/ProjectsSection.astro";
 import { socialLinks } from "../data/socials";
 import { site } from "../data/site";
 
@@ -22,6 +23,9 @@ const description = site.description;
     i'm also interested in finance. outside of coding, i'm probably watching formula 1, reading a book, watching some show
     or playing flight sim.
   </p>
+
+  <Divider />
+  <ProjectsSection />
 
   <Divider />
   <section class="socials" aria-labelledby="socials-title">
