@@ -1,14 +1,23 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Divider from "../components/Divider.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import { projects } from "../data/projects";
+import { socialLinks } from "../data/socials";
 
 const description = "a collection of things i've built.";
+const githubUrl = socialLinks.find(({ label }) => label === "github")?.href ?? "https://github.com/varnishdas";
 ---
 
 <BaseLayout title="projects" description={description}>
   <h1 class="name">projects</h1>
-  <p class="intro-text">a small collection of things i've built.</p>
+  <div class="projects-page__intro">
+    <p class="intro-text intro-text--muted">a small collection of things i've built.</p>
+    <p class="projects-page__more">
+      checkout my <a class="projects-page__github" href={githubUrl} target="_blank" rel="noopener noreferrer">github</a> for more.
+    </p>
+  </div>
+  <Divider />
 
   <section class="projects-page" aria-labelledby="projects-page-title">
     <h2 id="projects-page-title" class="visually-hidden">project list</h2>
