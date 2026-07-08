@@ -522,15 +522,41 @@ a:hover {
 }
 
 .projects-page__github {
+  position: relative;
   color: var(--color-text-muted);
   text-decoration: none;
+}
+
+.projects-page__github::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    currentColor 0%,
+    currentColor 10%,
+    transparent 10%,
+    transparent 30%,
+    currentColor 30%,
+    currentColor 40%,
+    transparent 40%,
+    transparent 60%,
+    currentColor 60%,
+    currentColor 70%,
+    transparent 70%,
+    transparent 90%,
+    currentColor 90%,
+    currentColor 100%
+  );
 }
 
 .projects-page__github:hover,
 .projects-page__github:focus-visible {
   color: var(--color-accent);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
 }
 
 /* ---------- Visually hidden ---------- */
