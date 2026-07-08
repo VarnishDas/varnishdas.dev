@@ -11,12 +11,9 @@ const githubUrl = socialLinks.find(({ label }) => label === "github")?.href ?? "
 
 <BaseLayout title="projects" description={description}>
   <h1 class="name">projects</h1>
-  <div class="projects-page__intro">
-    <p class="intro-text intro-text--muted">a small collection of things i've built.</p>
-    <p class="projects-page__more">
-      checkout my <a class="projects-page__github" href={githubUrl} target="_blank" rel="noopener noreferrer">github</a> for more.
-    </p>
-  </div>
+  <p class="intro-text intro-text--muted intro-text--wide">
+    a small collection of things i've built. checkout my <a class="projects-page__github" href={githubUrl} target="_blank" rel="noopener noreferrer">github</a> for more.
+  </p>
   <Divider />
 
   <section class="projects-page" aria-labelledby="projects-page-title">

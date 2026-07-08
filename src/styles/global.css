@@ -354,6 +354,10 @@ a:hover {
   max-width: min(100%, 60ch);
 }
 
+.intro-text--wide {
+  max-width: none;
+}
+
 /* ---------- Homepage socials ---------- */
 .socials__title {
   margin: 0 0 var(--space-3);
@@ -513,21 +517,7 @@ a:hover {
 }
 
 /* ---------- Projects page ---------- */
-.projects-page__intro {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--space-1) var(--space-3);
-}
-
 .intro-text--muted {
-  color: var(--color-text-muted);
-}
-
-.projects-page__more {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: var(--text-base);
   color: var(--color-text-muted);
 }
 
