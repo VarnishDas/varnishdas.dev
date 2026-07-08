@@ -463,6 +463,11 @@ a:hover {
   text-decoration: none;
 }
 
+.project-card--f1-points-calculator:hover,
+.project-card--f1-points-calculator:focus-visible {
+  border-color: transparent;
+}
+
 .project-card__header {
   display: flex;
   align-items: baseline;

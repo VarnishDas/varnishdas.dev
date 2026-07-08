@@ -9,7 +9,7 @@ const { project } = Astro.props;
 ---
 
 <a
-  class="project-card"
+  class={`project-card project-card--${project.id}`}
   href={project.href}
   target="_blank"
   rel="noopener noreferrer"
