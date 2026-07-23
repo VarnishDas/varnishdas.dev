@@ -1,6 +1,4 @@
-const normalizeUrl = (value: string | undefined) => {
-  if (!value) return undefined;
-
+const normalizeUrl = (value: string) => {
   const withProtocol = value.startsWith("http") ? value : `https://${value}`;
 
   return withProtocol.replace(/\/$/, "");
@@ -15,7 +13,8 @@ export const site = {
   url: normalizeUrl(
     import.meta.env.SITE_URL ??
       import.meta.env.PUBLIC_SITE_URL ??
-      import.meta.env.VERCEL_PROJECT_PRODUCTION_URL,
+      import.meta.env.VERCEL_PROJECT_PRODUCTION_URL ??
+      "https://varnishdas.dev",
   ),
 };
 
