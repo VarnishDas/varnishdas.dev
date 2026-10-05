@@ -1,22 +1,21 @@
 ---
-// SSR needs an adapter; this project currently builds static HTML.
 const ssrCode = [
-  "// Render this page on the server",
+  "---",
   "export const prerender = false;",
   "",
-  "// Server-rendered value",
+  "// Server-rendered values",
   "const generatedAt = new Date().toISOString();",
   "const requestId = crypto.randomUUID();",
+  "---",
+  "",
+  "<p>Generated at: {generatedAt}</p>",
+  "<p>Request ID: {requestId}</p>",
 ].join("\n");
 ---
 
-<article class="astro-demo__ssr-card">
-  <div class="astro-demo__ssr-copy">
-    <span class="astro-demo__status">Adapter required</span>
-    <p>
-      This project has no server adapter configured, so request-time values are
-      not enabled in the current build.
-    </p>
+<div class="astro-demo__code-panel">
+  <div class="astro-demo__code-heading">
+    <span>server-page.astro</span><span>Astro SSR</span>
   </div>
   <pre><code>{ssrCode}</code></pre>
-</article>
+</div>
