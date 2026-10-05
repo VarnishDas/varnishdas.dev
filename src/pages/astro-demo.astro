@@ -1,0 +1,141 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectsSection from "../components/ProjectsSection.astro";
+import CounterIsland from "../components/astro-demo/CounterIsland.jsx";
+import BrowserFetch from "../components/astro-demo/BrowserFetch.jsx";
+import SSRExample from "../components/astro-demo/SSRExample.astro";
+import "../styles/astro-demo.css";
+---
+
+<BaseLayout
+  title="Astro demo"
+  description="A small presentation demo of Astro's server-first architecture and interactive islands."
+  noindex
+>
+  <div class="astro-demo">
+    <header class="astro-demo__hero">
+      <p class="astro-demo__eyebrow">presentation demo <span>/</span> astro</p>
+      <h1 class="astro-demo__title">
+        server first<span>.</span><br />
+        interactive where it counts.
+      </h1>
+      <p class="astro-demo__intro">
+        Most of this page is ordinary Astro output. A few small components add
+        JavaScript only where the page needs it.
+      </p>
+      <div class="astro-demo__meta">
+        <span>static by default</span>
+        <span aria-hidden="true">·</span>
+        <span>islands on demand</span>
+      </div>
+    </header>
+
+    <section class="astro-demo__section" aria-labelledby="static-title">
+      <div class="astro-demo__section-heading">
+        <span class="astro-demo__number">01</span>
+        <div>
+          <p class="astro-demo__label">Static Astro</p>
+          <h2 id="static-title">HTML first.</h2>
+          <p class="astro-demo__description">
+            Generated as HTML without client-side component JavaScript. This
+            section reuses the site's existing Astro project list and cards.
+          </p>
+        </div>
+      </div>
+
+      <!-- Static Astro content -->
+      <ProjectsSection showAllLink={false} />
+      <p class="astro-demo__code-note">
+        Reused <code>ProjectsSection.astro</code> and
+        <code>ProjectCard.astro</code>
+      </p>
+    </section>
+
+    <section class="astro-demo__section" aria-labelledby="ssr-title">
+      <div class="astro-demo__section-heading">
+        <span class="astro-demo__number">02</span>
+        <div>
+          <p class="astro-demo__label">Server-side rendering</p>
+          <h2 id="ssr-title">A value per request.</h2>
+          <p class="astro-demo__description">
+            On-demand rendering creates fresh HTML for each request. This
+            isolated example shows the route code needed to turn it on.
+          </p>
+        </div>
+      </div>
+
+      <SSRExample />
+    </section>
+
+    <section class="astro-demo__section" aria-labelledby="fetch-title">
+      <div class="astro-demo__section-heading">
+        <span class="astro-demo__number">03</span>
+        <div>
+          <p class="astro-demo__label">Client-side data</p>
+          <h2 id="fetch-title">Fetched after load.</h2>
+          <p class="astro-demo__description">
+            The browser runs <code>useEffect</code>, requests a public post, and
+            fills in this small panel.
+          </p>
+        </div>
+      </div>
+
+      <BrowserFetch client:load />
+      <p class="astro-demo__code-note">
+        <code>useEffect → fetch()</code> runs in
+        <code>BrowserFetch.jsx</code>
+      </p>
+    </section>
+
+    <section class="astro-demo__section" aria-labelledby="islands-title">
+      <div class="astro-demo__section-heading">
+        <span class="astro-demo__number">04</span>
+        <div>
+          <p class="astro-demo__label">Astro islands</p>
+          <h2 id="islands-title">Three small React roots.</h2>
+          <p class="astro-demo__description">
+            The same reusable counter is interactive in each island. Change one
+            and the others keep their own state.
+          </p>
+        </div>
+      </div>
+
+      <div class="astro-demo__islands">
+        <div class="astro-demo__island-group">
+          <div class="astro-demo__group-heading">
+            <span>Hydrate on page load</span>
+            <code>client:load</code>
+          </div>
+          <div class="astro-demo__counter-grid">
+            <!-- Interactive islands -->
+            <CounterIsland title="Island A" client:load />
+            <CounterIsland title="Island B" client:load />
+          </div>
+        </div>
+
+        <div class="astro-demo__island-group astro-demo__island-group--visible">
+          <div class="astro-demo__group-heading">
+            <span>Hydrate when visible</span>
+            <code>client:visible</code>
+          </div>
+          <p class="astro-demo__visible-note">
+            Scroll this instance into view before it starts running in the browser.
+          </p>
+          <!-- Hydrate when visible -->
+          <CounterIsland title="Visible island" client:visible />
+        </div>
+      </div>
+    </section>
+
+    <section class="astro-demo__architecture" aria-labelledby="architecture-title">
+      <p class="astro-demo__label">In one pass</p>
+      <h2 id="architecture-title">The page, in layers.</h2>
+      <ol class="astro-demo__flow">
+        <li><span>01</span> Static Astro</li>
+        <li><span>02</span> Server-rendered HTML</li>
+        <li><span>03</span> Interactive islands</li>
+        <li><span>04</span> Client JavaScript only where needed</li>
+      </ol>
+    </section>
+  </div>
+</BaseLayout>
